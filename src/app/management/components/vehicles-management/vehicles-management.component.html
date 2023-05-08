@@ -5,78 +5,100 @@
             <h1 class="title">Gestión de vehículos</h1>
         </div>
         <div class="button-create-layout">
-            <div *ngIf="!createLayoutActivate">
+            <div *ngIf="!createLayoutActivate && !updateLayoutActivate">
                 <button (click)="launchCreateFormLayout()">Crear Vehiculo</button>
             </div>
-            <div *ngIf="createLayoutActivate">
-                <button class="close-button" (click)="closeInputFormLayout()">Cancelar</button>
+            <div *ngIf="createLayoutActivate || updateLayoutActivate ">
+                <button class="close-button" (click)="closeInputFormLayout()"> Cancelar</button>
             </div>
         </div>
     </div>
 
-    <div class="data-form-layout" *ngIf="createLayoutActivate ">
-            <form>
-                <div class="input-container">
-                    <label>Nombre</label>
-                    <input type="text" placeholder="Ingrese el nombre"/>
-                </div>
-                <div class="input-container">
-                    <label>Valor</label>
-                    <input type="text" placeholder="Ingrese el valor"/>
-                </div>
-                <div class="input-container"> 
-                    <label>Ejemplar</label>
-                    <input type="text" placeholder="Ingrese el ejemplar"/>
-                </div>
-                <div class="input-container">
-                    <label>Marca</label>
-                    <input type="text" placeholder="Ingrese la marca"/>
-                </div>
-                <div class="input-container">
-                    <label>Color</label>
-                    <input type="text" placeholder="Ingrese el color"/>
-                </div>
-                <div class="input-container">
-                    <label>Parametro</label>
-                    <input type="text" placeholder="Ingrese el parametro"/>
-                </div>
-                <div class="input-container">
-                    <label>Parametro</label>
-                    <input type="text" placeholder="Ingrese el parametro"/>
-                </div>
-                <div class="button-container">
-                    <button class="confirm-button">Confirmar</button>
-                </div>
-            </form>
-        </div>
+    <div class="data-form-layout" *ngIf="createLayoutActivate || updateLayoutActivate ">
+        <form [formGroup]="createCarForm" (ngSumbit)="onSumbit()">
+            <div class="input-container">
+                <label>Tipo</label>
+                <input type="text" formControlName="type" placeholder="Ingrese el tipo de vehiculo"
+                    [ngModel]="carInfo.type" />
+            </div>
+            <div class="input-container">
+                <label>Marca</label>
+                <input type="text" formControlName="brand" placeholder="Ingrese la marca" [ngModel]="carInfo.brand" />
+            </div>
+            <div class="input-container">
+                <label>Ejemplar</label>
+                <input type="text" formControlName="exemplar" placeholder="Ingrese el ejemplar"
+                    [ngModel]="carInfo.exemplar" />
+            </div>
+            <div class="input-container">
+                <label>Modelo</label>
+                <input type="text" formControlName="model" placeholder="Ingrese el modelo" [ngModel]="carInfo.model" />
+            </div>
+            <div class="input-container">
+                <label>Color</label>
+                <input type="text" formControlName="color" placeholder="Ingrese el color" [ngModel]="carInfo.color" />
+            </div>
+            <div class="input-container">
+                <label>Placa</label>
+                <input type="text" formControlName="plate" placeholder="Ingrese la placa" [ngModel]="carInfo.plate" />
+            </div>
+            <div class="input-container">
+                <label>Puertas</label>
+                <input type="number" formControlName="doors" placeholder="Ingrese la cantidad de puertas"
+                    [ngModel]="carInfo.doors" />
+            </div>
+            <div class="input-container">
+                <label>Kilometraje</label>
+                <input type="number" formControlName="kilometers" placeholder="Ingrese el kilometraje"
+                    [ngModel]="carInfo.kilometers" />
+            </div>
+            <div class="input-container">
+                <label>Descripción</label>
+                <input type="text" formControlName="description" placeholder="Ingrese una breve descriopción"
+                    [ngModel]="carInfo.description" />
+            </div>
+            <div class="input-container">
+                <label>Foto</label>
+                <input type="text" formControlName="photoUrl" placeholder="Ingrese el link de la foto"
+                    [ngModel]="carInfo.photoUrl" />
+            </div>
+            <div class="input-container">
+                <label>Precio</label>
+                <input type="number" placeholder="Ingrese el precio" formControlName="price"
+                    [ngModel]="carInfo.price" />
+            </div>
+            <div class="button-container">
+                <button class="confirm-button" type="sumbit">{{formButtonLayoutTitle}}</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="data-container">
 
-    <div class="labels-container"> 
+    <div class="labels-container">
         <div class="column-info" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-label': last }">
             <p class="label">{{category}}</p>
         </div>
     </div>
 
-    <div class="info-container" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-row': last }">
+    <div class="info-container" *ngFor="let car of carList; let last = last" [ngClass]="{ 'last-row': last }">
         <div class="row-container">
-            <p class="parameter-info">1</p>
-            <p class="parameter-info">Ford Fusion</p>
-            <p class="parameter-info">$105.621.000</p>
-            <p class="parameter-info">Fusion Titanium</p>
-            <p class="parameter-info">Ford</p>
-            <p class="parameter-info">Red</p>
-            <p class="parameter-info">Parametro</p>
+            <p class="parameter-info">{{car.id}}</p>
+            <p class="parameter-info">{{car.type}}</p>
+            <p class="parameter-info">{{car.brand}}</p>
+            <p class="parameter-info">{{car.exemplar}} </p>
+            <p class="parameter-info">{{car.model}}</p>
+            <p class="parameter-info">{{car.color}}</p>
+            <p class="parameter-info">{{car.plate}}</p>
+            <p class="parameter-info">{{car.doors}}</p>
+            <p class="parameter-info">{{car.kilometers.toLocaleString()}}</p>
+            <p class="parameter-info">${{car.price.toLocaleString()}}</p>
+            <p class="parameter-info">{{car.description}}</p>
             <div class="button-layout">
-                <button class="edit button">Modificar</button>
-                <button class="delete button">Eliminar</button>
+                <button class="edit button" (click)="selectedCar(car)">Modificar</button>
+                <button class="delete button" (click)="deleteCar(car.id)">Eliminar</button>
             </div>
         </div>
     </div>
-
-
-
 </div>
-
-

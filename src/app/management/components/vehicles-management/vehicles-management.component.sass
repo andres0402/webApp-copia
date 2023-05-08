@@ -99,7 +99,7 @@
         border-bottom: 1px solid $border-color
         column-gap: 10px
         background-color: #F8F8F8
-        border-radius: 8px 8px 0px 0px 
+        border-radius: 8px 8px 0px 0px
 
         .column-info
             .label
@@ -130,6 +130,9 @@
                 max-width: 150px
                 min-width: 100px
                 @include flex-center
+                overflow: hidden
+                
+                white-space: nowrap
         
                 &:first-child
                     max-width: 50px

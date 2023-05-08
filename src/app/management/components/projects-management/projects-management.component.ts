@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project/project';
 import { ProjectService } from 'src/app/shared/services/projectService/project.service';
@@ -63,6 +63,25 @@ export class ProjectsManagementComponent {
     });
   }
 
+
+  updateProject(id: HTMLParagraphElement, title: HTMLInputElement, description: HTMLTextAreaElement, initial: HTMLInputElement, final: HTMLInputElement, status: HTMLSelectElement, type: HTMLSelectElement, user: HTMLInputElement){
+    this.projectService.updateProject(parseInt(id.innerText), title, description, initial, final, status, type, user).subscribe(
+      data => {
+        console.log(data);
+      },
+        error => {
+          console.error(error);
+        }
+    );
+
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
+
+
+
   deleteProject(input: HTMLParagraphElement){
     this.projectService.deleteProjectById(parseInt(input.innerText)).subscribe(
       data => {
@@ -88,16 +107,39 @@ export class ProjectsManagementComponent {
     this.createLayoutActivate = false;
   }
 
-  setCurrentIndex(index: Number, state: string, type: string){
+  setCurrentIndex(index: Number, state: string, type: string, idProject: HTMLParagraphElement, titleProject: HTMLParagraphElement, idateProject: HTMLParagraphElement, fdateProject: HTMLParagraphElement, typeProject: HTMLParagraphElement, statusProject: HTMLParagraphElement){
     this.ind = index;
+
     this.createLayoutUpdate = true;
     this.currentState = state;
     this.currentType = type;
-
+    idProject.style.color = "white";
+    titleProject.style.color = "white";
+    idateProject.style.color = "white";
+    fdateProject.style.color = "white";
+    typeProject.style.color = "white";
+    statusProject.style.color = "white";
   }
 
-  closeUpdate(){
+  closeUpdate(idProject: HTMLParagraphElement, titleProject: HTMLParagraphElement, idateProject: HTMLParagraphElement, fdateProject: HTMLParagraphElement, typeProject: HTMLParagraphElement, statusProject: HTMLParagraphElement){
     this.createLayoutUpdate = false;
+    idProject.style.color = "black";
+    titleProject.style.color = "black";
+    idateProject.style.color = "black";
+    fdateProject.style.color = "black";
+    typeProject.style.color = "black";
+    statusProject.style.color = "black";
+  }
+
+  setAtributes(idProject: HTMLParagraphElement, titleProject: HTMLParagraphElement, idateProject: HTMLParagraphElement, fdateProject: HTMLParagraphElement, typeProject: HTMLParagraphElement, statusProject: HTMLParagraphElement){
+    idProject.style.color = "black";
+    titleProject.style.color = "black";
+    idateProject.style.color = "black";
+    fdateProject.style.color = "black";
+    typeProject.style.color = "black";
+    statusProject.style.color = "black";
+    return "";
+
   }
 
 

@@ -1,1 +1,73 @@
-<p>services-management works!</p>
+<div class="main-info-container">
+    <div class="general-info-layout">
+        <div class="title-layout">
+            <img class="image" src="../../../../assets/Icons/seguro-de-coche.png" alt="">
+            <h1 class="title">Gestión de servicios</h1>
+        </div>
+        <div class="button-create-layout">
+            <div *ngIf="!createLayoutActivate">
+                <button (click)="launchCreateFormLayout()">Crear Servicio</button>
+            </div>
+            <div *ngIf="createLayoutActivate">
+                <button class="close-button" (click)="closeInputFormLayout()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-form-layout" *ngIf="createLayoutActivate ">
+            <form>
+                <div class="input-container">
+                    <label>Nombre del servicio </label>
+                    <input type="text" placeholder="Ingrese el nombre"/>
+                </div>
+                <div class="input-container">
+                    <label>Sucursal</label>
+                    <input type="text" placeholder="Ingrese la sucursal"/>
+                </div>
+                <div class="input-container">
+                    <label>Duracion</label>
+                    <input type="text" placeholder="Ingrese el valor en minutos"/>
+                </div>
+                <div class="input-container"> 
+                    <label>Precio</label>
+                    <input type="text" placeholder="Ingrese el precio"/>
+                </div>
+                <div class="input-container">
+                    <label>Tipo de servicio</label>
+                    <input type="text" placeholder="Ej: Mantenimiento"/>
+                </div>
+                <div class="button-container">
+                    <button class="confirm-button">Confirmar</button>
+                </div>
+            </form>
+        </div>
+</div>
+
+<div class="data-container">
+
+    <div class="labels-container"> 
+        <div class="column-info" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-label': last }">
+            <p class="label">{{category}}</p>
+        </div>
+    </div>
+
+    <div class="info-container" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-row': last }">
+        <div class="row-container">
+            <p class="parameter-info">1</p>
+            <p class="parameter-info">Bogota</p>
+            <p class="parameter-info">Cambio de aceite</p>
+            <p class="parameter-info">30 min</p>
+            <p class="parameter-info">$120.000</p>
+            <p class="parameter-info">Mantenimiento</p>
+            <div class="button-layout">
+                <button class="edit button">Modificar</button>
+                <button class="delete button">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+

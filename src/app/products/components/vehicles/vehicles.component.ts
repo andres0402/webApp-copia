@@ -69,7 +69,7 @@ export class VehiclesComponent implements OnInit {
     this.vehiclesList = this.vehiclesList.filter(car => car.price >= minPrice && car.price <= maxPrice);
   }
 
-  filterByYear(year: Number): void {
-    this.vehiclesList = this.vehiclesList.filter(car => car.year == year);
+  filterByYear(year: String): void {
+    this.vehiclesList = this.vehiclesList.filter(car => car.model == year);
   }
 }

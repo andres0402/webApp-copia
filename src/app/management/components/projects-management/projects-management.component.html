@@ -71,17 +71,20 @@
     <div class="info-container" *ngFor="let project of listProjects; let i = index; let last = last" [ngClass]="{ 'last-row': last }">
         <div class="row-container">
             <p #idProject class="parameter-info">{{project.id}}</p>
-            <p class="parameter-info">{{project.title}}</p>
-            <p class="parameter-info">{{project.initial_date}}</p>
-            <p class="parameter-info">{{project.final_date}}</p>
-            <p class="parameter-info">{{project.project_type}}</p>
-            <p class="parameter-info">{{project.project_status}}</p>
+            <p #titleProject class="parameter-info">{{project.title}}</p>
+            <p #idateProject class="parameter-info">{{project.initial_date}}</p>
+            <p #fdateProject class="parameter-info">{{project.final_date}}</p>
+            <p #typeProject class="parameter-info">{{project.project_type}}</p>
+            <p #statusProject class="parameter-info">{{project.project_status}}</p>
+            <div style="display: none;" *ngIf="i != ind">{{ setAtributes(idProject, titleProject, idateProject, fdateProject, typeProject, statusProject) }}</div>
 
             <div class="button-layout">
-                <button class="edit button" (click)="setCurrentIndex(i, project.project_status, project.project_type)">Modificar</button>
+                <button class="edit button" (click)="setCurrentIndex(i, project.project_status, project.project_type, idProject, titleProject, idateProject, fdateProject, typeProject, statusProject)">Modificar</button>
                 <button class="delete button" (click)="deleteProject(idProject)">Eliminar</button>
             </div>
+           
         </div>
+        
         <div class="main-info-container" *ngIf="i == ind && createLayoutUpdate ">
             <div class="update-title-layout">
                 <div class="title-layout">
@@ -91,7 +94,7 @@
             <div class="exit-form-layout" *ngIf="createLayoutUpdate ">
                 <form>
                     <div class="button-container">
-                        <button (click)="closeUpdate()" class="close-button">Cerrar</button>
+                        <button (click)="closeUpdate(idProject, titleProject, idateProject, fdateProject, typeProject, statusProject)" class="close-button">Cerrar</button>
                     </div>
                 </form>    
             </div>
@@ -135,7 +138,8 @@
                         <input #projectUser type="text" value={{project.user_id}} placeholder="Ingrese el ID del usuario que solicitó el proyecto"/>
                     </div>
                     <div class="button-container">
-                        <button class="confirm-button" (click)="createProject(projectTitle, projectDescription, projectInitial, projectFinal, projectStatus, projectType, projectUser)">Aplicar cambios</button>
+                        <p #statusProject style="display: none;">{{project.id}}</p>
+                        <button class="confirm-button" (click)="updateProject(statusProject, projectTitle, projectDescription, projectInitial, projectFinal, projectStatus, projectType, projectUser)">Aplicar cambios</button>
                     </div>
                 </form>
             </div>
@@ -146,3 +150,4 @@
 
 
 </div>
+

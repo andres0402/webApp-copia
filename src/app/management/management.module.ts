@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { ManagementRoutingModule } from './management-routing.module';
 import { ManagementScreenComponent } from './components/management-screen/management-screen.component';
@@ -12,6 +11,7 @@ import { EventsManagementComponent } from './components/events-management/events
 import { ProjectsManagementComponent } from './components/projects-management/projects-management.component';
 import { AppointmentManagementComponent } from './components/appointment-management/appointment-management.component';
 import { BranchesManagementComponent } from './components/branches-management/branches-management.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { BranchesManagementComponent } from './components/branches-management/br
   imports: [
     CommonModule,
     ManagementRoutingModule,
-    FormsModule
+    ReactiveFormsModule
   ]
 })
 export class ManagementModule { }
