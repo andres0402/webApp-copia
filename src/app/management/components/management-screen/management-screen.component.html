@@ -1,0 +1,70 @@
+<section id="management-screen-section">
+    <div class="container wrap">
+        <div id="management-options">
+            <div class="user-info">
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541" alt="">
+                </div>
+                <div class="info-container">
+                    <h1 class="name-user">Mateo Rosero Quenwuan</h1>
+                    <h1 class="role-user">Administrador</h1>
+                </div>
+            </div>
+            <div class="options-layout">
+
+                <div class="option-container">
+                    <a [routerLink]="['userManagement']" [routerLinkActive]="['routerActivated']">
+                        <img src="../../../../assets/Icons/user-interface.png" alt="">
+                        <p>Usuarios</p>
+                    </a>
+                </div>
+                <div class="option-container" [routerLinkActive]="['routerActivated']">
+                    <a [routerLink]="['vehiclesManagement']">
+                        <img src="../../../../assets/Icons/seguro-de-coche.png" alt="">
+                        <p>Vehiculos</p>
+                    </a>
+                </div>
+                <div class="option-container">
+                    <a [routerLink]="['sparepartsManagement']" [routerLinkActive]="['routerActivated']">
+                        <img src="../../../../assets/Icons/piezas-de-repuesto.png" alt="">
+                        <p>Repuestos</p>
+                    </a>
+                </div>
+                <div class="option-container">
+                    <a [routerLink]="['servicesManagement']" [routerLinkActive]="['routerActivated']">
+                        <img src="../../../../assets/Icons/servicio-tecnico.png" alt="">
+                        <p>Servicios</p>
+                    </a>
+                </div>
+                <div class="option-container">
+                    <a [routerLink]="['eventsManagement']" [routerLinkActive]="['routerActivated']">
+                        <img src="../../../../assets/Icons/evento.png" alt="">
+                        <p>Eventos</p>
+                    </a>
+                </div>
+                <div class="option-container">
+                    <a [routerLink]="['appointmentManagement']" [routerLinkActive]="['routerActivated']">
+                        <img src="../../../../assets/Icons/plazo.png" alt="">
+                        <p>Citas</p>
+                    </a>
+                </div>
+                <div class="option-container">
+                    <a [routerLink]="['projectsManagement']" [routerLinkActive]="['routerActivated']">
+                        <img src="../../../../assets/Icons/gestion-de-proyectos.png" alt="">
+                        <p>Proyectos</p>
+                    </a>
+                </div>
+                <div class="option-container">
+                    <a [routerLink]="['branchesManagement']" [routerLinkActive]="['routerActivated']">
+                        <img src="../../../../assets/Icons/taller.png" alt="">
+                        <p>Talleres</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div id="management-container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</section>

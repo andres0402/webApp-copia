@@ -1,0 +1,86 @@
+@import '../../../../styles'
+
+#services-section
+    .container  
+        display: flex
+        flex-flow: row nowrap
+
+        #filter-container
+            flex-basis: 20%
+            background-color: #F8F8F8
+            padding: 20px 
+        
+        #services-container
+            flex-basis: 75%
+            border-left: 1px solid $border-color
+            padding: 20px 
+            min-height: 90vh
+
+            .title
+                font-size: 2.8em
+                margin-bottom: 20px
+
+            .subtitle
+                font-size: 1.8em
+                margin: 20px 0px 0px 30px
+                font-weight: 400
+                color: $font-color-secundary
+
+            #services-layout
+                display: flex
+                flex-flow: row wrap  
+                width: 90%
+                gap: 20px
+                padding-left: 50px
+                margin-top: 10px
+                margin-left: 20px
+     
+                .card-container
+                    display: flex
+                    flex-flow: column nowrap
+                    justify-content: space-between
+                    flex-basis: 22%
+                    column-gap: 20px
+                    border: 1px solid $border-color
+                    padding-bottom: 10px
+                    border-radius: 20px
+
+                .button-layout
+                    @include flex-center()
+                    justify-content: space-between
+                    padding: 0px 10px
+                    column-gap: 5px
+                    margin-top: 5px
+                    
+                    .add-button
+                        @include flex-center()
+                        flex-basis: 90%
+                        background-color: $secundary-color
+                        height: 30px
+                        font-size: 1.3em
+                        font-weight: bold
+                        text-decoration: none
+                        color: white
+                        transition: 300ms
+                        border-radius: 5px
+                        border: none
+
+                        &:hover
+                            cursor: pointer
+                            transform: scale(1.02)
+
+                    .favorite-button
+                        flex-basis: 10%
+                        border: none
+                        background-color: #ffffff00
+                        width: 100%
+                        border-radius: 5px
+                        height: 100%
+                        padding: 1px
+
+                        &:hover
+                            cursor: pointer
+                            transform: scale(1.02)
+                            color: red
+
+                    

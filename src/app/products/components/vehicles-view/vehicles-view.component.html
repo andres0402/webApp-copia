@@ -1,0 +1,95 @@
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<section id="vehicle-view-section">
+  <div *ngIf="vehicle" id="vehicle-container">
+    <div class="return-layout">
+      <a class="return-button" [routerLink]="['../']">
+        <span class="material-symbols-outlined">arrow_back_ios</span>
+        Volver al catalogo</a>
+    </div>
+
+    <div class="image-layout">
+      <img class="d-block" src={{vehicle.photoUrl}} alt="First slide">
+    </div>
+
+    <div class="primary-info-layout">
+
+      <div class="description-container">
+        <h1>{{vehicle.exemplar}}</h1>
+        <p>${{vehicle.price.toLocaleString()}}</p>
+      </div>
+
+      <div class="buy-botton-container">
+        <button>Comprar</button>
+      </div>
+
+    </div>
+
+    <div class="secundary-info-layout">
+
+      <div class="secundary-description-container">
+        <p class="secundary-title">Descripción</p>
+        <div class="description-layout">
+          <p>
+            {{vehicle.description}}
+          </p>
+        </div>
+      </div>
+
+      <div class="features-container">
+        <div class="title-features">
+          <h5>Caracteristicas</h5>
+        </div>
+        <div class="feature">
+          <div class="label">
+            <p>Marca</p>
+          </div>
+          <div class="info-feature">
+            <p>{{vehicle.brand}}</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="label">
+            <p>Tipo</p>
+          </div>
+          <div class="info-feature">
+            <p>{{vehicle.type}} </p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="label">
+            <p>Modelo</p>
+          </div>
+          <div class="info-feature">
+            <p>{{vehicle.model}}</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="label">
+            <p>Kilometraje</p>
+          </div>
+          <div class="info-feature">
+            <p>{{vehicle.kilometers.toLocaleString()}}</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="label">
+            <p>Placa</p>
+          </div>
+          <div class="info-feature">
+            <p>{{vehicle.plate}}</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="label">
+            <p>Cantidad de puertas</p>
+          </div>
+          <div class="info-feature">
+            <p>{{vehicle.doors}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

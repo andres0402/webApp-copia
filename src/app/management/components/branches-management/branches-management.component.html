@@ -1,0 +1,58 @@
+<div class="main-info-container">
+    <div class="general-info-layout">
+        <div class="title-layout">
+            <img class="image" src="../../../../assets/Icons/taller.png" alt="">
+            <h1 class="title">Gestión de Talleres</h1>
+        </div>
+        <div class="button-create-layout">
+            <div *ngIf="!createLayoutActivate">
+                <button (click)="launchCreateFormLayout()">Crear Taller</button>
+            </div>
+            <div *ngIf="createLayoutActivate">
+                <button class="close-button" (click)="closeInputFormLayout()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-form-layout" *ngIf="createLayoutActivate ">
+            <form>
+                <div class="input-container">
+                    <label>Nombre del Taller</label>
+                    <input type="text" placeholder="Ingrese el nombre del Taller"/>
+                </div>
+                <div class="input-container">
+                    <label>Ciudad</label>
+                    <input type="text" placeholder="Ingrese la Ciudad del Taller"/>
+                </div>
+                <div class="input-container"> 
+                    <label>Tipo de Sede</label>
+                    <input type="text" placeholder="Seleccione el Tipo de Sede"/>
+                </div>
+                <div class="button-container">
+                    <button class="confirm-button">Crear Taller</button>
+                </div>
+            </form>
+        </div>
+</div>
+
+<div class="data-container">
+
+    <div class="labels-container"> 
+        <div class="column-info" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-label': last }">
+            <p class="label">{{category}}</p>
+        </div>
+    </div>
+
+    <div class="info-container" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-row': last }">
+        <div class="row-container">
+            <p class="parameter-info">1</p>
+            <p class="parameter-info">Don Pepe</p>
+            <p class="parameter-info">Bogotá</p>
+            <p class="parameter-info">Principal</p>
+            <div class="button-layout">
+                <button class="edit button">Modificar</button>
+                <button class="delete button">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

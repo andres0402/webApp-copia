@@ -1,0 +1,136 @@
+@import '../styles'
+    
+#header
+    background-color: $background-color-primary
+    height: 70px
+    padding: 10px 0px
+    border-bottom: 1px solid $border-color
+
+
+    .container
+        display: flex
+        justify-content: space-between
+        height: 100%
+        
+        #icon-logo
+            flex-basis: 20%
+            @include flex-center()
+            justify-content: flex-start
+            min-width: 150px
+            padding-left: 20px
+
+            img
+                width: 65%
+                max-width: 200px
+            
+        #menu-home
+            justify-self: start
+            flex-flow: row nowrap
+            flex-basis: 40%
+            min-width: 500px
+
+            ul
+                @include flex-center 
+                justify-content: flex-start   
+                justify-content: space-around          
+                list-style: none
+                height: 100%
+                column-gap: 10px
+             
+                li  
+                    .item-menu
+                        color: $font-color-secundary
+                        font-size: 1.5em
+                        padding: 15px 20px
+                        text-decoration: none
+                        margin: 0px 10px
+                        transition: color 300ms
+                        font-weight: 400
+                        position: relative
+                        
+                        &::after
+                            content: ''
+                            width: 0%
+                            height: 2px
+                            background-color: $primary-color
+                            position: absolute
+                            bottom: 0
+                            left: 0
+                            transition: width 300ms
+
+                        &:hover::after
+                            width: 100%
+
+                        &:hover   
+                            color: $font-color-primary
+            
+        #search-layout
+            flex-basis: 45%
+            @include flex-center()
+            min-width: 200px
+         
+            form
+                width: 100%
+
+                #form-container
+                    @include flex-center()
+                    width: 100%
+                    position: relative
+
+                input
+                    width: 70%
+                    height: 35px
+                    border-radius: 10px
+                    border: 1px solid #ccc
+                    padding: 0px 10px
+                    font-size: 1.2em
+                    
+                button
+                    position: absolute
+                    right: 16%
+                    border: transparent
+                    background-color: transparent
+
+                    &:hover
+                        cursor: pointer
+
+                    span
+                        color: $font-color-secundary
+
+                        &:hover
+                            color: $font-color-primary
+
+        #user-preferences
+            @include flex-center()
+            flex-basis: 20%
+            column-gap: 10%
+            min-width: 200px
+
+            .icon
+                color: $font-color-primary
+                font-size: 3em
+
+.footer
+    background-color: black
+    text-align: center
+    height: 200px
+    overflow: hidden
+
+footer .logo-carro
+    width: 200px
+    margin-bottom: 0px
+
+footer .logo-redes2
+    width: 20px
+    margin: 10px
+
+footer p
+    color: white
+    font-family: SegoeUI, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
+.copy
+    color: white
+       
+            
+          
+

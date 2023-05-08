@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<section id="part-view-section">
+  <div *ngIf="sparepart" id="part-container">
+
+    <div class="return-layout">
+      <a [routerLink]="['../']" class="return-button">
+        <span class="material-symbols-outlined">arrow_back_ios</span>
+        Volver al catalogo</a>
+    </div>
+
+    <div class="carrousel-layout">
+        <img class="d-block" src={{sparepart.photoUrl}} alt="First slclasse">
+    </div>
+
+    <div class="primary-info-layout">
+
+      <div class="description-container">
+        <h1>{{sparepart.name}}</h1>
+        
+        <div class="secundary-info">
+            <p>Unidades disponibles: {{sparepart.stock}}</p>
+        </div>
+
+      </div>
+
+      <div class="buy-botton-container">
+        <div class="button-layout">
+            <button>Comprar</button>
+        </div>
+        <div class="num-layout">
+            <form>
+                <input type="number" [defaultValue]="1"/>
+            </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="secundary-info-layout">
+      <div class="secundary-description-container">
+        <p class="secundary-title">Descripción</p>
+        <div class="description-layout">
+          <p>{{sparepart.description}}</p>
+        </div>
+      </div>
+
+      <div class="features-container">
+        <div class="title-features">
+            <h5>Caracteristicas</h5>
+        </div>
+        <div class="feature">
+            <div class="label">
+                <p>Marca</p>
+            </div>
+            <div class="info-feature">
+                <p>{{sparepart.brand}}</p>
+            </div>
+        </div>
+        <div class="feature" >
+            <div class="label">
+                <p>Serial</p>
+            </div>
+            <div class="info-feature">
+                <p>{{sparepart.serial}}</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="label">
+                <p>Estado</p>
+            </div>
+            <div class="info-feature">
+                <p>{{sparepart.state}}</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="label">
+                <p>Lugar</p>
+            </div>
+            <div class="info-feature">
+                <p>Bogota</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<section id="vehicles-section">
+    <div class="container wrap">
+        <div id="filter-container">
+            <div>
+                <h1 class="filter-title">Marca</h1>
+                <div class="filters-layout">
+                    <ng-container *ngFor="let brand of brands">
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{brand:brand}">{{brand}} ({{brand.length}})</a>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div>   
+                <h1 class="filter-title">Precio</h1>
+                <form class="form-layout" [formGroup]="priceForm" (ngSubmit)="onSumbit()">
+                    <input class="price" placeholder="Minimo" type="number" formControlName="minPrice">
+                    <p> - </p>
+                    <input class="price" placeholder="Maximo" type="number" formControlName="maxPrice">
+                    <button class="btn btn-primary" type="submit">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </form>
+            </div>
+
+            <div>
+                <h1 class="filter-title">Año</h1>
+                <div class="filters-layout">
+                    <ng-container *ngFor="let year of years">
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{year:year}">{{year}} ({{year.length}})</a>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="filter-title">Categoria</h1>
+                <div class="filters-layout">
+                    <ng-container *ngFor="let type of types">
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{type:type}">{{type}} ({{type.length}})</a>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+        <div id="products-container">
+            <div id="products-layout">
+                <ng-container *ngFor="let vehicle of vehiclesList">
+                    <div class="card-container">
+                        <app-product-card [vehicle]="vehicle"></app-product-card>
+                        <div class="button-layout">
+                            <a [routerLink]="['./', vehicle.id]" class="details-button">Detalles</a>
+                            <button class="favorite-button"><span
+                                    class="material-symbols-outlined">favorite</span></button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>

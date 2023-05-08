@@ -1,0 +1,51 @@
+<section id="spareparts-section">
+    <div class="container wrap">
+        <div id="filter-container">
+            <div>
+                <h1 class="filter-title">Marca</h1>
+                <div class="filters-layout">
+                    <ng-container *ngFor="let brand of brands">
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{brand:brand}">{{brand}} ({{brand.length}})</a>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div>   
+                <h1 class="filter-title">Precio</h1>
+                <form class="form-layout" [formGroup]="priceForm" (ngSubmit)="onSumbitPrice()">
+                    <input class="price" placeholder="Minimo" type="number" formControlName="minPrice">
+                    <p> - </p>
+                    <input class="price" placeholder="Maximo" type="number" formControlName="maxPrice">
+                    <button class="btn btn-primary" type="submit">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </form>
+            </div>
+
+            <div>   
+                <h1 class="filter-title">Unidades disponibles</h1>
+                <form class="form-layout" [formGroup]="availableForm" (ngSubmit)="onSumbitAvailable()"> 
+                    <input class="price" placeholder="Maximo" type="number" formControlName="maxAvailable">
+                    <button class="btn btn-primary" type="submit"> 
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="products-container">
+            <div id="products-layout">
+                <ng-container *ngFor="let sparepart of sparepartList">
+                    <div class="card-container">
+                        <app-product-card [sparepart]="sparepart"></app-product-card>
+                        <div class="button-layout">
+                            <a [routerLink]="['./', sparepart.id]" class="details-button">Detalles</a>
+                            <button class="favorite-button"><span
+                                    class="material-symbols-outlined">favorite</span></button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>

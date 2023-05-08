@@ -1,0 +1,93 @@
+@import '../../../../styles'
+#management-screen-section
+    .container
+        display: flex
+        flex-flow: row nowrap
+
+        #management-options
+            flex-basis: 20%
+            display: flex
+            flex-flow: column nowrap
+            padding: 20px 30px
+            background-color: #F8F8F8
+            border-right: 1px solid $border-color
+
+            .user-info
+                @include flex-center()
+                flex-flow: column nowrap
+                margin-bottom: 20px
+
+                .image-container
+                    margin-bottom: 15px
+                    
+                    img
+                        width: 150px
+                        border-radius: 900px
+
+                .info-container
+                    display: flex
+                    flex-flow: column nowrap
+
+                    .name-user
+                        font-size: 2.2em
+                        text-align: center
+
+                    .role-user
+                        font-size: 1.3em
+                        text-align: center
+                        background-color: #0692BE
+                        border-radius: 20px
+                        padding: 8px 15px
+                        color: white
+                        margin: 15px auto
+                        font-weight: 400
+                        opacity: 80%
+
+
+            .options-layout
+                flex-basis: 80%
+                padding: 15px
+                display: flex
+                flex-flow: column nowrap
+                row-gap: 40px
+                
+                .option-container
+
+                    
+                    a
+                        @include flex-center()
+                        justify-content: flex-start
+                        column-gap: 20px
+                        padding: 5px
+                        text-decoration: none
+
+                        img
+                            width: 35px
+                            opacity: 50%
+
+                        p
+                            font-size: 1.8em      
+                            color: $font-color-secundary
+
+                        &:hover
+                            
+                            img
+                                opacity: 100%
+
+                            p                                
+                                color: $font-color-primary
+
+    #management-container
+        flex-basis: 80%
+        background-color: #F8F8F8
+        padding: 50px
+
+
+.routerActivated
+    img
+        opacity: 100% !important
+
+    p                                
+        color: $font-color-primary !important
+
+        

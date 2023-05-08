@@ -1,0 +1,11 @@
+image: kroniak/ssh-client
+
+stages:
+  - testing
+
+deployTestingAngularTo135:
+  only:
+    - testing
+  stage: testing
+  script:
+    - bash deploy/testing/deploy.sh

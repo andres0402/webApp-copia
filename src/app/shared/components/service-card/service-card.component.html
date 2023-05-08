@@ -1,0 +1,26 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+
+<div id="service-card-section">
+    <div class="image-layout">
+        <ng-container *ngIf="service">
+            <img *ngIf="!service.image" src="{{service.image}}"/>
+            <img *ngIf="service.image" src="https://qsystems.com.co/wp-content/uploads/2021/02/placeholder.png"/>
+        </ng-container>
+    </div>
+    <div class="info-layout">
+        <ng-container *ngIf="service">
+            <div class="primary-info">
+                <h3 class="title">{{ service.name }}</h3>
+                <h3 class="price">${{ service.price }}</h3>
+            </div>
+            <div class="secundary-info">
+                <p class="location">Sede: Bogota</p>
+                <p class="time">
+                    {{ service.duration }} Min
+                    <span class="material-symbols-outlined">timer</span>
+                </p>
+            </div>
+        </ng-container>
+    </div>
+</div>

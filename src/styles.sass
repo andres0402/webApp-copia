@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap')
+
+$background-color-primary: #FFFFFF
+$background-color-secundary: #1A1C1E
+$primary-color: #0F0F0F
+$secundary-color: #0692BE
+$font-color-blue: #0752BD
+$font-color-primary: #0F0F0F
+$font-color-secundary: #989898
+$font-color-third: #8e8f8f
+$details-primary-color: #3a3a3a
+$border-color: #CFCFCF
+$red: #bb2222
+
+@mixin flex-center()
+    display: flex
+    justify-content: center
+    align-items: center
+
+*
+    padding: 0px
+    margin: 0px
+    font-size: 10px
+    font-family: 'Roboto', sans-serif
+    max-width: 2500px
+
+.wrap
+    width: 100vw
+    max-width: 2000px
+    margin: 0 auto
+
+body
+    overflow-x: hidden
+    background-color: $background-color-primary

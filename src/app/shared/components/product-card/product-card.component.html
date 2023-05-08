@@ -1,0 +1,29 @@
+<div class="product-card">
+    <div class="image-container">
+        <ng-container *ngIf="vehicle">
+            <img *ngIf="vehicle.photoUrl" src={{vehicle.photoUrl}}>
+            <img *ngIf="!vehicle.photoUrl" src="https://www.lakshmihyundai.co.in/images/used-cars/placeholder.png">
+        </ng-container>
+
+        <ng-container *ngIf="sparepart">
+            <img *ngIf="sparepart.photoUrl" src={{sparepart.photoUrl}}>
+            <img *ngIf="!sparepart.photoUrl" src="https://www.lakshmihyundai.co.in/images/used-cars/placeholder.png">
+        </ng-container>
+    </div>
+
+    <div class="info-container">
+        <div class="info-layout">
+            <ng-container *ngIf="vehicle">
+                <h1 class="info-title"> {{vehicle.exemplar}} </h1>
+                <p class="secundary-info"> {{vehicle.model}}  |  {{vehicle.kilometers.toLocaleString()}}km</p>
+                <h2 class="info-price">${{vehicle.price.toLocaleString()}}</h2>
+            </ng-container>
+
+            <ng-container *ngIf="sparepart">
+                <h1 class="info-title">{{sparepart.name}} </h1>
+                <p class="secundary-info">Unidades disponibles: {{sparepart.stock}}</p>
+                <h2 class="info-price">${{sparepart.price.toLocaleString()}}</h2>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="main-info-container">
+    <div class="general-info-layout">
+        <div class="title-layout">
+            <img class="image" src="../../../../assets/Icons/gestion-de-proyectos.png" alt="">
+            <h1 class="title">Gestión de proyectos</h1>
+        </div>
+        <div class="button-create-layout">
+            <div *ngIf="!createLayoutActivate">
+                <button (click)="launchCreateFormLayout()">Crear Proyecto</button>
+            </div>
+            <div *ngIf="createLayoutActivate">
+                <button class="close-button" (click)="closeInputFormLayout()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-form-layout" *ngIf="createLayoutActivate ">
+            <form>
+                <div class="input-container">
+                    <label>Titulo</label>
+                    <input #projectTitle type="text" placeholder="Ingrese el título del proyecto"/>
+                </div>
+                <div class="input-container">
+                    <label>Descripción</label>
+                    <textarea #projectDescription type="text" placeholder="Ingrese la descripción del proyecto"></textarea>
+                </div>
+                <div class="input-container"> 
+                    <label>Fecha de inicio</label>
+                    <input #projectInitial type="date" placeholder="Ingrese la fecha"/>
+                </div>
+                <div class="input-container">
+                    <label>Fecha de finalización (esperada)</label>
+                    <input #projectFinal type="date" placeholder="Ingrese la fecha"/>
+                </div>
+                <div class="input-container">
+                    <label>Estado</label>
+                    <select #projectStatus>
+                        <option value="">Seleccionar</option>
+                        <option value="iniciado">Iniciado</option>
+                        <option value="en desarrollo">En desarrollo</option>
+                        <option value="finalizado">Finalizado</option>
+                      </select>
+                </div>
+                <div class="input-container">
+                    <label>Tipo</label>
+                    <select #projectType>
+                        <option value="">Seleccionar</option>
+                        <option value="modificacion">Modificacion</option>
+                        <option value="reparacion">Reparacion</option>
+                      </select>
+                </div>
+                <div class="input-container">
+                    <label>ID del usuario asociado</label>
+                    <input #projectUser type="text" placeholder="Ingrese el ID del usuario que solicitó el proyecto"/>
+                </div>
+                <div class="button-container">
+                    <button class="confirm-button" (click)="createProject(projectTitle, projectDescription, projectInitial, projectFinal, projectStatus, projectType, projectUser)">Confirmar</button>
+                </div>
+            </form>
+        </div>
+</div>
+
+<div class="data-container">
+
+    <div class="labels-container"> 
+        <div class="column-info" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-label': last }">
+            <p class="label">{{category}}</p>
+        </div>
+    </div>
+
+    <div class="info-container" *ngFor="let project of listProjects; let i = index; let last = last" [ngClass]="{ 'last-row': last }">
+        <div class="row-container">
+            <p #idProject class="parameter-info">{{project.id}}</p>
+            <p class="parameter-info">{{project.title}}</p>
+            <p class="parameter-info">{{project.initial_date}}</p>
+            <p class="parameter-info">{{project.final_date}}</p>
+            <p class="parameter-info">{{project.project_type}}</p>
+            <p class="parameter-info">{{project.project_status}}</p>
+
+            <div class="button-layout">
+                <button class="edit button" (click)="setCurrentIndex(i, project.project_status, project.project_type)">Modificar</button>
+                <button class="delete button" (click)="deleteProject(idProject)">Eliminar</button>
+            </div>
+        </div>
+        <div class="main-info-container" *ngIf="i == ind && createLayoutUpdate ">
+            <div class="update-title-layout">
+                <div class="title-layout">
+                    <h1 class="title">Modificar proyecto</h1>
+                </div>
+            </div>
+            <div class="exit-form-layout" *ngIf="createLayoutUpdate ">
+                <form>
+                    <div class="button-container">
+                        <button (click)="closeUpdate()" class="close-button">Cerrar</button>
+                    </div>
+                </form>    
+            </div>
+            <div class="data-form-layout" *ngIf="createLayoutUpdate">
+                <form>
+                    <div class="input-container">
+                        <label>Titulo</label>
+                        <input #projectTitle type="text" value={{project.title}} placeholder="Ingrese el título del proyecto"/>
+                    </div>
+                    <div class="input-container">
+                        <label>Descripción</label>
+                        <textarea #projectDescription type="text" wrap="soft" value={{project.project_description}} placeholder="Ingrese la descripción del proyecto"></textarea>
+                    </div>
+                    <div class="input-container"> 
+                        <label>Fecha de inicio</label>
+                        <input #projectInitial type="date" value="{{project.initial_date}}" placeholder="Ingrese la fecha"/>
+                    </div>
+                    <div class="input-container">
+                        <label>Fecha de finalización (esperada)</label>
+                        <input #projectFinal type="date" value="{{project.final_date}}" placeholder="Ingrese la fecha"/>
+                    </div>
+                    <div class="input-container">
+                        <label>Estado</label>
+                        <select #projectStatus [value]="currentState">
+                            <option value="">Seleccionar</option>
+                            <option value="iniciado">Iniciado</option>
+                            <option value="en desarrollo">En desarrollo</option>
+                            <option value="finalizado">Finalizado</option>
+                          </select>
+                    </div>
+                    <div class="input-container">
+                        <label>Tipo</label>
+                        <select #projectType [value]="currentType">
+                            <option value="">Seleccionar</option>
+                            <option value="modificacion">Modificacion</option>
+                            <option value="reparacion">Reparacion</option>
+                          </select>
+                    </div>
+                    <div class="input-container">
+                        <label>ID del usuario asociado</label>
+                        <input #projectUser type="text" value={{project.user_id}} placeholder="Ingrese el ID del usuario que solicitó el proyecto"/>
+                    </div>
+                    <div class="button-container">
+                        <button class="confirm-button" (click)="createProject(projectTitle, projectDescription, projectInitial, projectFinal, projectStatus, projectType, projectUser)">Aplicar cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+</div>

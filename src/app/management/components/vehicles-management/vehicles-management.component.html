@@ -1,0 +1,82 @@
+<div class="main-info-container">
+    <div class="general-info-layout">
+        <div class="title-layout">
+            <img class="image" src="../../../../assets/Icons/seguro-de-coche.png" alt="">
+            <h1 class="title">Gestión de vehículos</h1>
+        </div>
+        <div class="button-create-layout">
+            <div *ngIf="!createLayoutActivate">
+                <button (click)="launchCreateFormLayout()">Crear Vehiculo</button>
+            </div>
+            <div *ngIf="createLayoutActivate">
+                <button class="close-button" (click)="closeInputFormLayout()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-form-layout" *ngIf="createLayoutActivate ">
+            <form>
+                <div class="input-container">
+                    <label>Nombre</label>
+                    <input type="text" placeholder="Ingrese el nombre"/>
+                </div>
+                <div class="input-container">
+                    <label>Valor</label>
+                    <input type="text" placeholder="Ingrese el valor"/>
+                </div>
+                <div class="input-container"> 
+                    <label>Ejemplar</label>
+                    <input type="text" placeholder="Ingrese el ejemplar"/>
+                </div>
+                <div class="input-container">
+                    <label>Marca</label>
+                    <input type="text" placeholder="Ingrese la marca"/>
+                </div>
+                <div class="input-container">
+                    <label>Color</label>
+                    <input type="text" placeholder="Ingrese el color"/>
+                </div>
+                <div class="input-container">
+                    <label>Parametro</label>
+                    <input type="text" placeholder="Ingrese el parametro"/>
+                </div>
+                <div class="input-container">
+                    <label>Parametro</label>
+                    <input type="text" placeholder="Ingrese el parametro"/>
+                </div>
+                <div class="button-container">
+                    <button class="confirm-button">Confirmar</button>
+                </div>
+            </form>
+        </div>
+</div>
+
+<div class="data-container">
+
+    <div class="labels-container"> 
+        <div class="column-info" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-label': last }">
+            <p class="label">{{category}}</p>
+        </div>
+    </div>
+
+    <div class="info-container" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-row': last }">
+        <div class="row-container">
+            <p class="parameter-info">1</p>
+            <p class="parameter-info">Ford Fusion</p>
+            <p class="parameter-info">$105.621.000</p>
+            <p class="parameter-info">Fusion Titanium</p>
+            <p class="parameter-info">Ford</p>
+            <p class="parameter-info">Red</p>
+            <p class="parameter-info">Parametro</p>
+            <div class="button-layout">
+                <button class="edit button">Modificar</button>
+                <button class="delete button">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+

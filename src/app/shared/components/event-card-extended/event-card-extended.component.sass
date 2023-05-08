@@ -1,0 +1,41 @@
+@import '../../../../styles'
+#event-card-extended-section
+    background-image: url('https://speedhunters-wp-production.s3.amazonaws.com/wp-content/uploads/2020/03/04125001/DSC00202.jpg')
+    background-size: cover
+    background-position-y: 65%
+    border-radius: 20px
+    padding: 10px
+    max-height: 300px
+    height: 35vh
+    position: relative
+
+    .information-layout
+        display: flex
+        flex-flow: column nowrap
+        justify-content: space-between
+        position: absolute
+        backdrop-filter: blur(10px)
+        width: 35%
+        height: 40%
+        min-height: 150px
+        min-width: 200px
+        right: 0%
+        bottom: 0%
+        border-radius: 20px 0px 20px 0px
+        padding: 20px 50px
+
+        .text
+            color: white
+
+        .title-event
+            font-size: 3em
+
+        .secundary-info-layout
+            display: flex
+            flex-flow: column nowrap
+            column-gap: 20px
+            justify-content: space-between
+        
+            .info-event
+                font-size: 2em
+                font-weight: 200

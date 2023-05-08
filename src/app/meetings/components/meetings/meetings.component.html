@@ -1,0 +1,32 @@
+<section id="meetings-section">
+    <div class="container wrap">
+        <div class="extended-card-layout">
+            <div id="event-card-extended-section">
+                <div class="information-layout">
+                    <h1 class="title-event text">¡Conoce nuestros próximos eventos!</h1>
+                </div>
+            </div>
+        </div>
+        <div class="card-layout">
+            <ng-container *ngFor="let event of events">
+                <div class="card-container">
+                    <div id="event-card-section">
+                        <div class="image-container">
+                            <img src="{{event.imageURL}}">
+                        </div>
+                        <div class="info-container">
+                            <div class="date-layout">
+                                <p class="location">Colombia</p>
+                                <p class="day">{{event.fecha}}</p>
+                            </div>
+                            <div class="info-layout">
+                                <h4 class="title">{{event.nombre}}</h4>
+                                <p class="site">{{event.descripcion}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

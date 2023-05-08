@@ -1,0 +1,88 @@
+<section id="home-section">
+  <div class="wrap">
+    <div class="image-container">
+      <div class="carousel-item active">
+        <img
+          src="https://a-static.besthdwallpaper.com/bugatti-chiron-hill-drift-wallpaper-3554x1999-53464_53.jpg"
+          class="d-block w-100"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="title">Visita nuestra tienda virtual</h1>
+          <p class="subtitle">Las mejores ofertas de vehiculos y repuestos</p>
+          <button type="button" class="btnIngresar">
+            <a [routerLink]="['/products/vehicles']" id="aLogin">Conoce más</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="achievements">
+      <div class="card-achivement">
+        <a [routerLink]="['/products/vehicles']">
+          <div class="work">
+            <img src="https://i.imgur.com/Ai4jmjH.png" />
+            <p class="work-heading">Vehiculos</p>
+            <p class="work-text">
+              Descubre ofertas de vehiculos nuevos y usados de acuerdo a tus
+              necesidades
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-achivement">
+        <a [routerLink]="['/meetings']">
+          <div class="work">
+            <img src="https://i.imgur.com/dJ9giQo.png" />
+            <p class="work-heading">Eventos</p>
+            <p class="work-text">
+              Consulta los próximos eventos automovilísticos en distintas zonas
+              del país
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-achivement">
+        <a href="['/home']">
+          <div class="work">
+            <img
+              src="https://img.freepik.com/vector-premium/simbolo-soporte-tecnico-herramientas-icono-vector-signo-plano_652240-1991.jpg?w=826"
+            />
+            <p class="work-heading">Talleres</p>
+            <p class="work-text">
+              Accede a la información de las diferentes sedes disponibles de Mi
+              Carrito a lo largo del país
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-achivement">
+        <a href="/servicios">
+          <div class="work">
+            <img src="https://i.imgur.com/x1uzjHl.png" />
+            <p class="work-heading">Modificaciones</p>
+            <p class="work-text">
+              Agenda citas de proyectos de modificación para tu vehículo
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-achivement">
+        <a [routerLink]="['/benefits']">
+          <div class="work">
+            <img src="https://i.imgur.com/cVUIZjn.png" />
+            <p class="work-heading">Servicios</p>
+            <p class="work-text">
+              Agenda servicios de peritaje y proyectos de reparación para tu
+              vehículo
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

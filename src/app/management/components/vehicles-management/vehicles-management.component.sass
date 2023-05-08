@@ -1,0 +1,171 @@
+@import '../../../../styles'
+    
+.main-info-container
+    background-color: white
+    border-radius: 10px
+    border: 1px solid $border-color
+    padding: 20px 50px
+    margin-bottom: 30px
+
+    .general-info-layout
+        @include flex-center()
+        flex-flow: row nowrap
+        justify-content: space-between
+        align-items: center
+
+        .title-layout
+            @include flex-center()
+            justify-content: flex-start
+            column-gap: 20px
+
+            .image
+                width: 60px
+
+            .title
+                font-size: 2.8em
+        
+        .button-create-layout
+            button
+                border-radius: 10px
+                border: none
+                background-color: #10A015
+                color: white
+                font-size: 2em
+                padding: 10px 20px
+                transition: 300ms
+                min-width: 180px
+                font-weight: bold
+
+                &:hover
+                    cursor: pointer
+                    transform: scale(1.02)
+
+    .data-form-layout
+        border-top: 1px solid $border-color
+        padding: 20px 0px
+        margin-top: 20px
+  
+        form
+            display: flex 
+            flex-flow: row wrap
+            justify-content: space-between
+            column-gap: 50px
+            row-gap: 20px
+
+            .input-container
+                flex-basis: 27%
+
+                label
+                    display: flex
+                    flex-flow: column nowrap
+                    font-size: 1.25em
+                    color: #555555
+
+                input
+                    width: 100%
+                    padding: 10px
+                    border-radius: 10px
+                    border: 1px solid #ccc
+                    font-size: 1.4em
+
+                    &::placeholder
+                        color: #ccc
+
+            .button-container
+                flex-basis: 27%
+                justify-self: flex-end
+                @include flex-center()
+
+                button
+                    padding: 10px 
+                    width: 50%
+                    border-radius: 10px
+                    border: none
+                    font-size: 1.5em
+                    color: white
+                    font-weight: bold
+                    
+
+.data-container
+    background-color: white
+    border-radius: 10px
+    border: 1px solid $border-color
+
+    .labels-container
+        display: flex
+        flex-flow: row nowrap
+        justify-content: space-between
+        padding: 15px 30px
+        border-bottom: 1px solid $border-color
+        column-gap: 10px
+        background-color: #F8F8F8
+        border-radius: 8px 8px 0px 0px 
+
+        .column-info
+            .label
+                font-size: 1.3em
+                font-weight: 300
+                text-align: center
+                min-width: 100px
+                color: #7a7a7a
+
+        .last-label
+            min-width: 150px
+                
+    .info-container
+        border-bottom: 1px solid #eeeeee
+
+        .row-container
+            display: flex
+            flex-flow: row nowrap
+            justify-content: space-between
+            padding: 10px 30px
+            column-gap: 10px
+      
+            .parameter-info
+                min-width: 70px
+                font-size: 1.3em
+                font-weight: 300
+                text-align: center
+                max-width: 150px
+                min-width: 100px
+                @include flex-center
+        
+                &:first-child
+                    max-width: 50px
+
+
+            .button-layout
+                @include flex-center
+                column-gap: 5px
+                min-width: 150px
+
+                .button
+                    border-radius: 5px
+                    padding: 5px 10px
+                    border: none
+                    color: white
+                    transition: 300ms
+
+                    &:hover
+                        opacity: 90%
+                        transform: scale(1.05)
+
+                .edit
+                    background-color: #066699
+                
+                .delete
+                    background-color: #FB3D3D
+                    
+    .last-row
+        border: none !important
+    
+
+
+.close-button
+    background-color: #FB3D3D !important
+
+.confirm-button
+    background-color: #10A015 !important
+
+    
