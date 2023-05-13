@@ -8,4 +8,18 @@ export class Service {
     public image: string,
     public servicioType: string
   ) {}
+
+  static describe(): Array<string> {
+    let service: string[] = [
+      'ID',
+      'Sucursal',
+      'Nombre',
+      'Duracion (mins)',
+      'Precio',
+      'Tipo de servico',
+      'Acciones',
+    ];
+    
+    return service;
+  }
 }

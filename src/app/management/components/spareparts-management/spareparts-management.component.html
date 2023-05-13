@@ -1,1 +1,91 @@
-<p>spareparts-management works!</p>
+<div class="main-info-container">
+    <div class="general-info-layout">
+        <div class="title-layout">
+            <img class="image" src="../../../../assets/Icons/piezas-de-repuesto.png" alt="">
+            <h1 class="title">Gestión de Repuestos</h1>
+        </div>
+        <div class="button-create-layout">
+            <div *ngIf="!createLayoutActivate && !updateLayoutActivate">
+                <button (click)="launchCreateFormLayout()">Crear Repuesto</button>
+            </div>
+            <div *ngIf="createLayoutActivate || updateLayoutActivate ">
+                <button class="close-button" (click)="closeInputFormLayout()"> Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-form-layout" *ngIf="createLayoutActivate || updateLayoutActivate">
+        <form [formGroup]="createSparePartForm" (ngSumbit)="onSumbit()">
+            <div class="input-container">
+                <label>Nombre</label>
+                <input type="text" formControlName="name" placeholder="Ingrese el nombre del repuesto"
+                    [ngModel]="sparePartInfo.name" />
+            </div>
+            <div class="input-container">
+                <label>Marca</label>
+                <input type="text" formControlName="brand" placeholder="Ingrese la marca"
+                    [ngModel]="sparePartInfo.brand" />
+            </div>
+            <div class="input-container">
+                <label>Serial</label>
+                <input type="number" formControlName="serial" placeholder="Ingrese el serial del repuesto"
+                    [ngModel]="sparePartInfo.serial" />
+            </div>
+            <div class="input-container">
+                <label>Cantidad</label>
+                <input type="number" formControlName="model" placeholder="Ingrese la cantidad de inventario"
+                    [ngModel]="sparePartInfo.stock" />
+            </div>
+            <div class="input-container">
+                <label>Estado</label>
+                <input type="text" formControlName="model" placeholder="Ingrese el estado del repuesto"
+                    [ngModel]="sparePartInfo.state" />
+            </div>
+            <div class="input-container">
+                <label>Precio</label>
+                <input type="number" placeholder="Ingrese el precio" formControlName="price"
+                    [ngModel]="sparePartInfo.price" />
+            </div>
+            <div class="input-container">
+                <label>Descripción</label>
+                <input type="text" formControlName="description" placeholder="Ingrese una breve descripción"
+                    [ngModel]="sparePartInfo.description" />
+            </div>
+            <div class="input-container">
+                <label>Foto</label>
+                <input type="text" formControlName="photoUrl" placeholder="Ingrese el link de la foto"
+                    [ngModel]="sparePartInfo.photoUrl" />
+            </div>
+            <div class="button-container">
+                <button class="confirm-button" type="sumbit">{{formButtonLayoutTitle}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="data-container">
+
+    <div class="labels-container">
+        <div class="column-info" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-label': last }">
+            <p class="label">{{category}}</p>
+        </div>
+    </div>
+
+    <div class="info-container" *ngFor="let sparePart of sparePartsList; let last = last"
+        [ngClass]="{ 'last-row': last }">
+        <div class="row-container">
+            <p class="parameter-info">{{sparePart.id}}</p>
+            <p class="parameter-info">{{sparePart.name}}</p>
+            <p class="parameter-info">{{sparePart.brand}}</p>
+            <p class="parameter-info">{{sparePart.state}} </p>
+            <p class="parameter-info">{{sparePart.serial}}</p>
+            <p class="parameter-info">{{sparePart.stock}}</p>
+            <p class="parameter-info">${{sparePart.price.toLocaleString()}}</p>
+            <p class="parameter-info">{{sparePart.description}}</p>
+            <div class="button-layout">
+                <button class="edit button" (click)="selectedSparePart(sparePart)">Modificar repuesto</button>
+                <button class="delete button" (click)="deleteSparePart(sparePart.id)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

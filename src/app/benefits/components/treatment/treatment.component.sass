@@ -9,78 +9,115 @@
             flex-basis: 20%
             background-color: #F8F8F8
             padding: 20px 
-        
-        #services-container
-            flex-basis: 75%
-            border-left: 1px solid $border-color
-            padding: 20px 
-            min-height: 90vh
-
-            .title
-                font-size: 2.8em
-                margin-bottom: 20px
-
-            .subtitle
+            display: flex
+            flex-flow: column nowrap
+            row-gap: 30px
+            
+            .filter-title
                 font-size: 1.8em
-                margin: 20px 0px 0px 30px
-                font-weight: 400
-                color: $font-color-secundary
+                font-weight: bold
+                margin-bottom: 5px
 
-            #services-layout
-                display: flex
-                flex-flow: row wrap  
-                width: 90%
-                gap: 20px
-                padding-left: 50px
-                margin-top: 10px
-                margin-left: 20px
-     
-                .card-container
-                    display: flex
-                    flex-flow: column nowrap
-                    justify-content: space-between
-                    flex-basis: 22%
-                    column-gap: 20px
-                    border: 1px solid $border-color
-                    padding-bottom: 10px
-                    border-radius: 20px
+            .features-container
+                @include flex-center
+                flex-flow: column nowrap
+                border-radius: 5px
+                border: 1px solid $border-color
 
-                .button-layout
-                    @include flex-center()
-                    justify-content: space-between
-                    padding: 0px 10px
-                    column-gap: 5px
-                    margin-top: 5px
-                    
-                    .add-button
+                .title-features
+                    font-size: 1.5em
+                    font-weight: 500
+                    padding: 20px
+
+                .features-selected-layout
+                    width: 100%
+
+                    .feature
                         @include flex-center()
-                        flex-basis: 90%
-                        background-color: $secundary-color
-                        height: 30px
-                        font-size: 1.3em
-                        font-weight: bold
-                        text-decoration: none
-                        color: white
-                        transition: 300ms
-                        border-radius: 5px
-                        border: none
-
-                        &:hover
-                            cursor: pointer
-                            transform: scale(1.02)
-
-                    .favorite-button
-                        flex-basis: 10%
-                        border: none
-                        background-color: #ffffff00
-                        width: 100%
-                        border-radius: 5px
-                        height: 100%
-                        padding: 1px
-
-                        &:hover
-                            cursor: pointer
-                            transform: scale(1.02)
-                            color: red
-
+                        justify-content: space-between
+                        border: 1px solid #ccc
+                        padding: 10px
                     
+                        p
+                            font-size: 1.7em
+                            font-weight: 300
+                        
+                        button
+                            border: none
+                            border-radius: 5px
+                            padding: 3px
+                            background-color: transparent
+
+                            &:hover
+                                color: red
+
+    #services-container
+        flex-basis: 75%
+        border-left: 1px solid $border-color
+        padding: 20px 
+        min-height: 90vh
+
+        .title
+            font-size: 2.5em
+            font-weight: bold
+            margin-bottom: 20px
+
+        #services-layout
+            display: flex
+            flex-flow: row wrap
+            width: 100%
+            gap: 20px
+
+            .card-container
+                display: flex
+                flex-flow: column nowrap
+                flex-basis: 30%
+                border: 1px solid $border-color
+                padding-bottom: 10px
+                border-radius: 20px
+                height: auto
+                overflow: hidden
+                height: 400px
+
+            .button-layout
+                @include flex-center()
+                column-gap: 10px
+                padding: 10px 10px 0px 10px
+                
+                .add-button
+                    @include flex-center()
+                    background-color: $secundary-color
+                    flex-basis: 90%
+                    height: 40px
+                    font-size: 1.7em
+                    font-weight: bold
+                    text-decoration: none
+                    color: white
+                    transition: 300ms
+                    border-radius: 10px
+                    transition: 100ms
+                    border: none
+
+                    &:hover
+                        transform: scale(1.02)
+
+                .favorite-button
+                    flex-basis: 10%
+                    height: 40px
+                    border: none
+                    background-color: transparent
+                    padding: 1px
+                    transition: 100ms
+
+                    &:hover
+                        cursor: pointer
+                        transform: scale(1.02)
+                        color: red
+
+                
+
+
+
+
+
+            

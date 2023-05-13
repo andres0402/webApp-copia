@@ -6,18 +6,22 @@ import { AuthModule } from './auth/auth.module';
 import { BenefitsModule } from './benefits/benefits.module';
 import { MeetingsModule } from './meetings/meetings.module';
 import { ProductsModule } from './products/products.module';
+import { ProfileModule } from './profile/profile.module';
 import { UserPreferencesModule } from './userPreferences/user-preferences.module';
 import { HomeComponent } from './home/components/home/home.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ManagementModule } from './management/management.module';
+import { ProjectsModule } from './projects/projects.module';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
     HomeComponent
   ],
   imports: [
+    ProfileModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,
@@ -26,9 +30,10 @@ import { ManagementModule } from './management/management.module';
     ProductsModule,
     UserPreferencesModule,
     HttpClientModule,
-    ManagementModule
+    ManagementModule,
+    ProjectsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

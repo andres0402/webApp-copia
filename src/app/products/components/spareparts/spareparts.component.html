@@ -5,7 +5,7 @@
                 <h1 class="filter-title">Marca</h1>
                 <div class="filters-layout">
                     <ng-container *ngFor="let brand of brands">
-                        <a class="category-p" [routerLink]="['./']" [queryParams]="{brand:brand}">{{brand}} ({{brand.length}})</a>
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{brand:brand}">{{brand}}</a>
                     </ng-container>
                 </div>
             </div>

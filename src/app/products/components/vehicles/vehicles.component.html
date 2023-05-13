@@ -7,7 +7,7 @@
                 <h1 class="filter-title">Marca</h1>
                 <div class="filters-layout">
                     <ng-container *ngFor="let brand of brands">
-                        <a class="category-p" [routerLink]="['./']" [queryParams]="{brand:brand}">{{brand}} ({{brand.length}})</a>
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{brand:brand}">{{brand}}</a>
                     </ng-container>
                 </div>
             </div>
@@ -24,11 +24,11 @@
                 </form>
             </div>
 
-            <div>
+            <div style="display: none;">
                 <h1 class="filter-title">Año</h1>
                 <div class="filters-layout">
                     <ng-container *ngFor="let year of years">
-                        <a class="category-p" [routerLink]="['./']" [queryParams]="{year:year}">{{year}} ({{year.length}})</a>
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{year:year}">{{year}}</a>
                     </ng-container>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <h1 class="filter-title">Categoria</h1>
                 <div class="filters-layout">
                     <ng-container *ngFor="let type of types">
-                        <a class="category-p" [routerLink]="['./']" [queryParams]="{type:type}">{{type}} ({{type.length}})</a>
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{type:type}">{{type}}</a>
                     </ng-container>
                 </div>
             </div>

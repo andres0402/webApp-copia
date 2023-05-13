@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<section id="vehicles-section">
+    <div class="container wrap">
+        <div id="filter-container">
+            <div>
+                <h1 class="filter-title">Tipo</h1>
+                <div class="filters-layout">
+                    <ng-container *ngFor="let type of types">
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{type:type}">{{type}}</a>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="filter-title">Estado</h1>
+                <div class="filters-layout">
+                    <ng-container *ngFor="let status of status">
+                        <a class="category-p" [routerLink]="['./']" [queryParams]="{status:status}">{{status}}</a>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div>   
+                <h1 class="filter-title">Rango de fechas</h1>
+                <div class="form-layout">
+                    <input #iDate class="price" placeholder="Fecha de inicio" type="date">
+                    <p> - </p>
+                    <input #fDate class="price" placeholder="Fecha de finalizacion" type="date">
+                    <button class="btn btn-primary" (click)="filterByDates(iDate, fDate)">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+
+            <div>   
+                <h1 class="filter-title">Buscar por título</h1>
+                <div class="form-layout">
+                    <input #titleProject class="price" placeholder="Título del proyecto" type="text">
+                    <button class="btn btn-primary" (click)="filterByTitle(titleProject)">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+
+            <div>   
+                <h1 class="filter-title">Buscar por ID de usuario</h1>
+                <div class="form-layout">
+                    <input #idUser class="price" placeholder="ID del usuario" type="number">
+                    <button class="btn btn-primary" (click)="filterById(idUser)">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+
+                    
+        </div>
+
+        <div id="products-container">
+            <div id="products-layout">
+                <ng-container *ngFor="let project of listProjects">
+                    <div class="card-container">
+                        <app-project-card [project]="project"></app-project-card>
+                        <div class="button-layout">
+                            <a [routerLink]="['./', project.id]" class="details-button">Detalles</a>
+                            <button class="favorite-button"><span
+                                    class="material-symbols-outlined">favorite</span></button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>

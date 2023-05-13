@@ -10,9 +10,9 @@ export class AppointmentService {
 
   constructor(private httpClient: HttpClient) { }
 
-  eventURL =  'http://10.43.101.134/events/evento/';
+  eventURL =  'http://10.43.101.134/events/event';
 
   public eventList(): Observable<Meeting[]>{
-      return this.httpClient.get<Meeting[]>(this.eventURL + 'list-event')
+      return this.httpClient.get<Meeting[]>(this.eventURL)
   }
 }

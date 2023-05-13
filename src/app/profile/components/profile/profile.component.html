@@ -1,0 +1,19 @@
+<div class="profile">
+    <div class="container">
+
+        <div class="profile-picture">
+            <img [src]="user.pictureUrl" alt="{{user.name}}'s profile picture" />
+            
+        </div>
+        <h1>{{user.name}}</h1>
+        <p>{{user.jobTitle}}</p>
+        <div class="profile-body">
+            <div class="profile-details">
+                <p><strong>Email:</strong> {{user.email}}</p>
+                <p><strong>Phone:</strong> {{user.phone}}</p>
+                <p><strong>Address:</strong> {{user.address}}</p>
+                <p><strong>About me:</strong> {{user.aboutMe}}</p>
+            </div>
+        </div>
+    </div>
+</div>

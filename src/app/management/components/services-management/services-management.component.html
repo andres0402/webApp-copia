@@ -15,26 +15,31 @@
     </div>
 
     <div class="data-form-layout" *ngIf="createLayoutActivate ">
-            <form>
+            <form [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
                 <div class="input-container">
                     <label>Nombre del servicio </label>
-                    <input type="text" placeholder="Ingrese el nombre"/>
+                    <input type="text" formControlName="name" placeholder="Ingrese el nombre" [ngModel]="serviceInfo.name"/>
                 </div>
                 <div class="input-container">
                     <label>Sucursal</label>
-                    <input type="text" placeholder="Ingrese la sucursal"/>
+                    <input type="text" formControlName="sucursal" placeholder="Ingrese la sucursal"[ngModel]="serviceInfo.id_sucursal"/>
                 </div>
                 <div class="input-container">
                     <label>Duracion</label>
-                    <input type="text" placeholder="Ingrese el valor en minutos"/>
+                    <input type="number" formControlName="duration" placeholder="Ingrese el valor en minutos" [ngModel]="serviceInfo.duration"/>
                 </div>
                 <div class="input-container"> 
                     <label>Precio</label>
-                    <input type="text" placeholder="Ingrese el precio"/>
+                    <input type="number" formControlName="price" placeholder="Ingrese el precio" [ngModel]="serviceInfo.price"/>
                 </div>
                 <div class="input-container">
                     <label>Tipo de servicio</label>
-                    <input type="text" placeholder="Ej: Mantenimiento"/>
+                    <input type="text" formControlName="type" placeholder="Ej: Mantenimiento" [ngModel]="serviceInfo.servicioType"/>
+                </div>
+                <div class="input-container">
+                    <label>Foto</label>
+                    <input type="text" formControlName="photoUrl" placeholder="Ingrese el link de la foto"
+                        [ngModel]="serviceInfo.image" />
                 </div>
                 <div class="button-container">
                     <button class="confirm-button">Confirmar</button>
@@ -51,17 +56,17 @@
         </div>
     </div>
 
-    <div class="info-container" *ngFor="let category of labels; let last = last" [ngClass]="{ 'last-row': last }">
+    <div class="info-container" *ngFor="let service of serviceList; let last = last" [ngClass]="{ 'last-row': last }">
         <div class="row-container">
-            <p class="parameter-info">1</p>
-            <p class="parameter-info">Bogota</p>
-            <p class="parameter-info">Cambio de aceite</p>
-            <p class="parameter-info">30 min</p>
-            <p class="parameter-info">$120.000</p>
-            <p class="parameter-info">Mantenimiento</p>
+            <p class="parameter-info">{{service.id}}</p>
+            <p class="parameter-info">{{service.id_sucursal}}</p>
+            <p class="parameter-info">{{service.name}}</p>
+            <p class="parameter-info">{{service.duration}}</p>
+            <p class="parameter-info">${{service.price}}</p>
+            <p class="parameter-info">{{service.servicioType}}</p>
             <div class="button-layout">
-                <button class="edit button">Modificar</button>
-                <button class="delete button">Eliminar</button>
+                <button class="edit button" (click)="selectedService(service)">Modificar</button>
+                <button class="delete button" (click)="deleteService(service.id)">Eliminar</button>
             </div>
         </div>
     </div>

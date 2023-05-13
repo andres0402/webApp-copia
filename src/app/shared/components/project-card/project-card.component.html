@@ -1,0 +1,15 @@
+<div class="product-card">
+
+    <div class="info-container">
+        <div class="info-layout">
+            <ng-container *ngIf="project">
+                <h1 class="info-title"> {{project.title}} </h1>
+                <p> </p>
+                <p class="secundary-info"> Tipo: {{project.project_type}}</p>
+                <p class="secundary-info"> Estado: {{project.project_status}}</p>
+                <p class="secundary-info"> ID del usuario asociado: {{project.user_id}}</p>
+                <p class="secundary-info"> Fecha de inicio: {{project.initial_date}}</p>
+            </ng-container>
+        </div>
+    </div>
+</div>

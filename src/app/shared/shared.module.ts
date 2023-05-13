@@ -4,6 +4,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { EventCardExtendedComponent } from './components/event-card-extended/event-card-extended.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ServiceCardComponent } from './components/service-card/service-card.com
     ProductCardComponent,
     EventCardExtendedComponent,
     EventCardComponent,
-    ServiceCardComponent
+    ServiceCardComponent,
+    ProjectCardComponent
   ],
   imports: [
     CommonModule
@@ -20,7 +22,8 @@ import { ServiceCardComponent } from './components/service-card/service-card.com
     ProductCardComponent,
     EventCardComponent,
     EventCardExtendedComponent,
-    ServiceCardComponent
+    ServiceCardComponent,
+    ProjectCardComponent
   ]
 })
 

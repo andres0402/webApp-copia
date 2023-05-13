@@ -12,7 +12,7 @@ export class TreatmentComponent implements OnInit {
   constructor(private benefitService: ServicesService) { }
 
   treatmentList: Service[] = [];
-  selectedTreatmen: Service[] = [];
+  selectedTreatment: Service[] = [];
   serviceType: string[] = [];
   map = new Map();
 
@@ -43,11 +43,11 @@ export class TreatmentComponent implements OnInit {
 
 
   addSelectedService(service: Service): void {
-    this.selectedTreatmen.push(service);
+    this.selectedTreatment.push(service);
   }
 
   removeSelectedService(service: Service): void {
     this.benefitService.deleteService(service.id).subscribe();
-    this.selectedTreatmen = this.selectedTreatmen.filter(x => x != service);
+    this.selectedTreatment = this.selectedTreatment.filter(x => x != service);
   }
 }

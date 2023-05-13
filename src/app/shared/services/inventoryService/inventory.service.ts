@@ -55,4 +55,8 @@ export class InventoryService {
     return this.http.delete(this.baseUrl + "vehicle/car/" + id.toString());
   }
 
+  deleteSpare(id: Number) {
+    return this.http.delete(this.baseUrl + "spareParts/" + id.toString());
+  }
+
 }
