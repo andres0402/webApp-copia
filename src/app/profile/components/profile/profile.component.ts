@@ -22,7 +22,7 @@ export class ProfileComponent {
   user: User = {
     name: 'Kyllian Mbappé',
     jobTitle: 'Striker',
-    pictureUrl: 'https://www.elgrafico.com.ar/media/cache/pub_news_details_large/media/i/fa/28/fa2836662bb87c9e7c3fa1673ee3c2b2f80eed13.jpg',
+    pictureUrl: 'https://cdn.mundialeros.com/wp-content/uploads/2022/12/messsi-1.jpg',
     email: 'kyllian@yopmail.com',
     phone: '+1 (555) 123-4567',
     address: '123 Main St, Anytown USA',
