@@ -20,12 +20,12 @@ interface User {
 })
 export class ProfileComponent {
   user: User = {
-    name: 'Kyllian Mbappé',
+    name: 'Lionel Messi',
     jobTitle: 'Striker',
     pictureUrl: 'https://cdn.mundialeros.com/wp-content/uploads/2022/12/messsi-1.jpg',
-    email: 'kyllian@yopmail.com',
+    email: 'messi10@yopmail.com',
     phone: '+1 (555) 123-4567',
     address: '123 Main St, Anytown USA',
-    aboutMe: 'I am a striker for Paris Saint-Germain and the France national team. I am considered the world\'s most expensive player from a transfer value perspective by the CIES. I am known for my finishing, dribbling, and speed.'
+    aboutMe: 'I am a striker for Inter Miami and the Argentina national team. I am considered the world\'s most expensive player from a transfer value perspective by the CIES. I am known for my finishing, dribbling, and speed.'
   };
 }
